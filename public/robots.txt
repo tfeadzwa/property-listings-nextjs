@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sold.co.zw
+
+# Sitemaps
+Sitemap: https://sold.co.zw/sitemap.xml
