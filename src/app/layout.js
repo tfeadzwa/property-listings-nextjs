@@ -5,7 +5,7 @@ const nunito = Nunito({ subsets: ["latin"], weights: ["400", "700"] });
 
 export const metadata = {
   title: "NextJS - Tafadzwa",
-  description: "Web application with NextJS and ReactJS",
+  description: "Web application using NextJS and ReactJS",
 };
 
 export default function RootLayout({ children }) {
