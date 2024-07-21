@@ -5,15 +5,26 @@ import { useState } from "react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [loginMenu, setLoginMenu] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
+  const onLoginBtnClick = () => {
+    setLoginMenu(!loginMenu);
+  };
+
   const LoginMenu = (
-    <div className="text-white bg-[#4b5563] p-2 flex flex-col gap-1">
-      <Link href="/">Signup</Link>
-      <Link href="/">Login</Link>
+    <div className="text-[#d8cdcd] bg-[#4b5563] p-2 pl-4 rounded-xl w-full mt-1 flex flex-col gap-1 absolute z-[100]">
+      <ul className="flex flex-col gap-3">
+        <li>
+          <Link href="/">Signup</Link>
+        </li>
+        <li>
+          <Link href="/">Login</Link>
+        </li>
+      </ul>
     </div>
   );
 
@@ -72,16 +83,18 @@ const Header = () => {
           </li>
         </ul>
 
-      
-
-        <button
-          type="button"
-          className="flex gap-2 items-center border border-gray-500 py-2 px-4 rounded-2xl"
-          aria-label="Login or signup to explore more properties"
-        >
-          <span className="text-black">Login</span>
-          <CircleUser size={18} />
-        </button>
+        <div>
+          <button
+            type="button"
+            className="flex gap-2 items-center border border-gray-500 py-2 px-4 rounded-2xl"
+            aria-label="Login or signup to explore more properties"
+            onClick={() => onLoginBtnClick()}
+          >
+            <span className="text-black">Login</span>
+            <CircleUser size={18} />
+          </button>
+          {loginMenu ? LoginMenu : ""}
+        </div>
       </nav>
     </header>
   );

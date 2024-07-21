@@ -4,8 +4,8 @@ import "./globals.css";
 const nunito = Nunito({ subsets: ["latin"], weights: ["400", "700"] });
 
 export const metadata = {
-  title: "NextJS - Tafadzwa",
-  description: "Web application using NextJS and ReactJS",
+  title: "Property Listings - Nextjs",
+  description: "Property Listing web application using Nextjs",
 };
 
 export default function RootLayout({ children }) {
