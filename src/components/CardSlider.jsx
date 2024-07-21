@@ -15,6 +15,7 @@ export default function CardSlider() {
     slidesToShow: 3, // Default number of slides to show
     slidesToScroll: 1,
     adaptiveHeight: true,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,

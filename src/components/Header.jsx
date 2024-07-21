@@ -1,4 +1,4 @@
-import { ChevronDown, CircleUser } from "lucide-react";
+import { ChevronDown, CircleUser, Menu } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { useState } from "react";
@@ -6,6 +6,7 @@ import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loginMenu, setLoginMenu] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -13,6 +14,10 @@ const Header = () => {
 
   const onLoginBtnClick = () => {
     setLoginMenu(!loginMenu);
+  };
+
+  const onSetMenuOpen = () => {
+    setMenuOpen(!menuOpen);
   };
 
   const LoginMenu = (
@@ -28,65 +33,47 @@ const Header = () => {
     </div>
   );
 
-  const HeaderMenu = (
-    <div className="text-white bg-[#4b5563] p-2 flex flex-col gap-1">
-      <li>
-        <Link href="/">FOR SALE</Link>
-      </li>
-      <li>
-        <Link href="/">TO RENT</Link>
-      </li>
-      <li>
-        <Link href="/">NEW DEVELOPMENTS</Link>
-      </li>
-      <li>
-        <Link href="/">SHOWDAYS</Link>
-      </li>
-      <li>
-        <Link href="/">AGENCIES</Link>
-      </li>
-      <li>
-        <Link href="/">BLOG</Link>
-      </li>
-    </div>
-  );
-
   return (
-    <header className="px-6 py-4 bg-[#f3f4f6] lg:px-16">
-      <nav className="flex justify-between items-center text-gray-700 text-base">
-        <div className="font-semibold text-xl">LOGO</div>
+    <header className={`z-50 bg-[#f3f4f6] py-4 left-0 lg:w-full lg:px-16`}>
+      <nav
+        className={`flex px-6 justify-between items-center text-gray-700 text-base`}
+      >
+        <div className="font-semibold text-xl hidden lg:block">LOGO</div>
 
-        <ul className="flex gap-4 invisible lg:visible">
-          <li>
-            <Link href="/" className="flex gap-1 items-center justify-center">
-              <span>For Sale</span>
-              <ChevronDown size={18} />
-            </Link>
-          </li>
-          <li>
-            <Link href="/" className="flex gap-1 items-center justify-center">
-              <span>To Rent</span>
-              <ChevronDown size={18} />
-            </Link>
-          </li>
-          <li>
-            <Link href="/">New Developments</Link>
-          </li>
-          <li>
-            <Link href="/">Showdays</Link>
-          </li>
-          <li>
-            <Link href="/">Agencies</Link>
-          </li>
-          <li>
-            <Link href="/">Blog</Link>
-          </li>
-        </ul>
+        <div className={`${menuOpen ? "" : "hidden"} lg:block`}>
+          <ul className="flex flex-col gap-4 lg:flex-row">
+            <li>
+              <Link href="/" className="flex gap-1 items-center">
+                <span>For Sale</span>
+                <ChevronDown size={18} />
+              </Link>
+            </li>
 
-        <div>
+            <li>
+              <Link href="/" className="flex gap-1 items-center">
+                <span>To Rent</span>
+                <ChevronDown size={18} />
+              </Link>
+            </li>
+            <li>
+              <Link href="/">New Developments</Link>
+            </li>
+            <li>
+              <Link href="/">Showdays</Link>
+            </li>
+            <li>
+              <Link href="/">Agencies</Link>
+            </li>
+            <li>
+              <Link href="/">Blog</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="self-start">
           <button
             type="button"
-            className="flex gap-2 items-center border border-gray-500 py-2 px-4 rounded-2xl"
+            className="flex gap-2 items-center border border-gray-500 py-[10px] px-3 rounded-2xl lg:py-2 lg:px-4"
             aria-label="Login or signup to explore more properties"
             onClick={() => onLoginBtnClick()}
           >
@@ -95,6 +82,15 @@ const Header = () => {
           </button>
           {loginMenu ? LoginMenu : ""}
         </div>
+
+        <button
+          type="button"
+          aria-label="Click here to open the menu"
+          className="self-start lg:hidden"
+          onClick={() => onSetMenuOpen()}
+        >
+          <Menu />
+        </button>
       </nav>
     </header>
   );
