@@ -15,9 +15,9 @@ const HomePage = () => {
         <meta name="keywords" content="NextJs, Test, Tafadzwa" />
         <link rel="canonical" href="https://sold.co.zw" />
 
-        <meta property="og:title" content="Property Listings - Nextjs" />
+        <meta property="og:title" content="Property Listing - Nextjs" />
         <meta
-          property="og:description  "
+          property="og:description"
           content="Property Listing Web application made with Nextjs and Reactjs"
         />
         <meta property="og:url" content="https://sold.co.zw" />
@@ -32,7 +32,6 @@ const HomePage = () => {
           <section className="relative w-full max-h-[500px] h-[500px] overflow-hidden">
             <Image
               src="/pexels13.jpg"
-              // src="/pixaba-88.jpg"
               alt="Description of the image"
               fill
               quality={90}
